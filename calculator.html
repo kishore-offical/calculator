@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calculator
+    </title>
+    <style>
+        .calc{
+            width:240px;
+            background-color: black;
+            border-radius:6px;
+            padding:16px;
+            display:flex;
+            flex-wrap:wrap;
+        }
+        h1{
+            color: rgb(17, 215, 218);
+        }
+        
+        #display{
+            width:100%;
+            padding:7px;
+            margin-bottom:10px;
+        }
+        .b1{
+            width:50px;
+            height:50px;
+            border-radius: 50%;
+            border: 0;
+            margin-bottom:10px;
+        }
+        
+        .b2{
+            width:100px;
+            height:50px;
+            border-radius: 8%;
+            border: 0;
+            margin-bottom:10px;
+            font-size:25px;
+            color:rgb(242, 7, 30);
+            
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            padding:70px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <h1>calculator</h1>
+        <input type="text" id="display" />
+        <div class="button">
+            <button onclick="cleardisplay()"class="b2">clear</button>
+            <div class="buttonwrap">
+                <button onclick="displayvalue(7)"class="b1">7</button>
+                <button onclick="displayvalue(8)"class="b1">8</button>
+                <button onclick="displayvalue(9)"class="b1">9</button>
+                <button onclick="displayvalue('/')"class="b1">/</button>
+            </div> <div class="buttonwrap">
+                <button onclick="displayvalue(4)"class="b1">4</button>
+                <button onclick="displayvalue(5)"class="b1">5</button>
+                <button onclick="displayvalue(6)"class="b1">6</button>
+                <button onclick="displayvalue('*')"class="b1">*</button>
+            </div>
+            <div class="buttonwrap">
+                <button onclick="displayvalue(1)"class="b1">1</button>
+                <button onclick="displayvalue(2)"class="b1">2</button>
+                <button onclick="displayvalue(3)"class="b1">3</button>
+                <button onclick="displayvalue('-')"class="b1">-</button>
+            </div>
+            <div class="buttonwrap">
+                <button onclick="displayvalue('.')"class="b1">.</button>
+                <button onclick="displayvalue(0)"class="b1">0</button>
+                <button onclick="displayvalue('+')"class="b1">+</button>
+                <button onclick="answer('=')"class="b1">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function displayvalue(val){
+    document.querySelector("#display").value= document.getElementById("display").value+val;
+}
+function cleardisplay(){
+document.getElementById("display").value="";
+}
+
+function answer(){
+    var userInput=document.getElementById("display").value;
+    var result=eval(userInput);
+    document.getElementById("display").value=result;
+}</script>
+</html>
